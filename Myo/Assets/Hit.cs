@@ -18,7 +18,7 @@ public class Hit : MonoBehaviour {
 
     void FixedUpdate()
     {
-        velocity = Vector3.Lerp(velocity, velocityPoint.transform.position - lastPos, .7f);
+        velocity = Vector3.Lerp(velocity, velocityPoint.transform.position - lastPos, .8f);
         lastPos = velocityPoint.transform.position;
         power = Vector3.Magnitude(velocity);
     }

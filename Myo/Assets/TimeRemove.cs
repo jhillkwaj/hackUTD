@@ -16,4 +16,5 @@ public class TimeRemove : MonoBehaviour {
             Destroy(this.gameObject);
         }
 	}
+
 }
