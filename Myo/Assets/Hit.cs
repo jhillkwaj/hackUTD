@@ -32,7 +32,7 @@ public class Hit : MonoBehaviour {
             newObj.transform.position = other.transform.position;
         }
         //Destroy(other.gameObject);
-        myoScript.Vibrate(VibrationType.Medium);
+        myoScript.Vibrate(VibrationType.Short);
         other.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(this.transform.position - other.transform.position) * -4000 * power);
         other.GetComponent<Rigidbody>().angularVelocity = Vector3.Normalize(this.transform.position - other.transform.position) * -14 * power;
 

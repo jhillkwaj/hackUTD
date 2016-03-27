@@ -30,6 +30,8 @@ public class JointOrientation : MonoBehaviour
     // which they are active.
     private Pose _lastPose = Pose.Unknown;
 
+    public bool outsideRefrenceUpdate = false;
+
     // Update is called once per frame.
     void Update ()
     {
@@ -53,7 +55,7 @@ public class JointOrientation : MonoBehaviour
 
         // Update references. This anchors the joint on-screen such that it faces forward away
         // from the viewer when the Myo armband is oriented the way it is when these references are taken.
-        if (updateReference) {
+        if (updateReference || outsideRefrenceUpdate) {
             // _antiYaw represents a rotation of the Myo armband about the Y axis (up) which aligns the forward
             // vector of the rotation with Z = 1 when the wearer's arm is pointing in the reference direction.
             _antiYaw = Quaternion.FromToRotation (
@@ -68,6 +70,7 @@ public class JointOrientation : MonoBehaviour
             // the roll value matches the reference.
             Vector3 referenceZeroRoll = computeZeroRollVector (myo.transform.forward);
             _referenceRoll = rollFromZero (referenceZeroRoll, myo.transform.forward, myo.transform.up);
+            outsideRefrenceUpdate = false;
         }
 
         // Current zero roll vector and roll value.
