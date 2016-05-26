@@ -17,13 +17,11 @@ public class StartGame : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-	    if(Input.GetKeyDown(KeyCode.Space)){
+	    if(true){
             
             if (start)
             {
                 AudioSource.PlayClipAtPoint(sound, Camera.main.transform.position);
-                sword.GetComponent<JointOrientation>().outsideRefrenceUpdate = true;
-                pan.GetComponent<PanOrientation>().outsideRefrenceUpdate = true;
                 startObj.SetActive(true);
                 Destroy(this.gameObject);
             }

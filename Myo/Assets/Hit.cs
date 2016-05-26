@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using VibrationType = Thalmic.Myo.VibrationType;
 
 public class Hit : MonoBehaviour {
     public GameObject myo;
-    private ThalmicMyo myoScript;
     public GameObject velocityPoint;
     public Vector3 velocity;
     float power;
@@ -13,7 +11,6 @@ public class Hit : MonoBehaviour {
     void Start()
     {
         lastPos = velocityPoint.transform.position;
-        myoScript = myo.GetComponent<ThalmicMyo>();
     }
 
     void FixedUpdate()
@@ -32,7 +29,6 @@ public class Hit : MonoBehaviour {
             newObj.transform.position = other.transform.position;
         }
         //Destroy(other.gameObject);
-        myoScript.Vibrate(VibrationType.Short);
         other.GetComponent<Rigidbody>().AddForce(Vector3.Normalize(this.transform.position - other.transform.position) * -4000 * power);
         other.GetComponent<Rigidbody>().angularVelocity = Vector3.Normalize(this.transform.position - other.transform.position) * -14 * power;
 
