@@ -33,7 +33,7 @@ public class Center : MonoBehaviour {
         try
         {
             AudioSource.PlayClipAtPoint(hit, Camera.main.transform.position);
-            float power = Vector3.Magnitude(other.GetComponent<Hit>().velocity);
+            float power = Vector3.Magnitude(other.GetComponent<Hit>().velocity) * .7f;
             for (int i = 0; i < power * 3; i++)
             {
                 GameObject newObj1 = Instantiate(Resources.Load("Sushi", typeof(GameObject))) as GameObject;
